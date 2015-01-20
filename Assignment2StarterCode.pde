@@ -11,12 +11,14 @@ boolean[] keys = new boolean[526];
 
 void setup()
 {
-  size(500, 500);
+  size(1000, 750);
+  
   setUpPlayerControllers();
 }
 
 void draw()
-{
+{ 
+  background(0);
   for(Player player:players)
   {
     player.update();
@@ -68,16 +70,26 @@ void setUpPlayerControllers()
   XML[] children = xml.getChildren("player");
   int gap = width / (children.length + 1);
   
-  for(int i = 0 ; i < children.length ; i ++)  
-  {
-    XML playerXML = children[i];
-    Player p = new Player(
-            i
-            , color(random(0, 255), random(0, 255), random(0, 255))
-            , playerXML);
-    int x = (i + 1) * gap;
-    p.pos.x = x;
-    p.pos.y = 300;
-   players.add(p);         
-  }
+  
+    XML playerXML1 = children[0];
+    Player p1 = new Player(
+            1
+            , color(255)//(random(0, 255), random(0, 255), random(0, 255))
+            , playerXML1);
+
+    p1.pos.x = 20;
+    p1.pos.y = width / 2;
+   players.add(p1);         
+  
+   
+  XML playerXML2 = children[1]; 
+  Player p2 = new Player(
+            2
+            , color(255)//(random(0, 255), random(0, 255), random(0, 255))
+            , playerXML2);
+
+    p2.pos.x = width - 40;
+    p2.pos.y = width / 2;
+   players.add(p2); 
+  
 }

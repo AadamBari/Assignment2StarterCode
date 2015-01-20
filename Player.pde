@@ -48,12 +48,13 @@ class Player
   {
     if (checkKey(up))
     {
-      pos.y -= 1;
+      pos.y -= 5;
     }
     if (checkKey(down))
     {
-      pos.y += 1;
+      pos.y += 5;
     }
+    /*
     if (checkKey(left))
     {
       pos.x -= 1;
@@ -62,6 +63,7 @@ class Player
     {
       pos.x += 1;
     }
+    */
     if (checkKey(start))
     {
       println("Player " + index + " start");
@@ -80,6 +82,6 @@ class Player
   {    
     stroke(colour);
     fill(colour);    
-    rect(pos.x, pos.y, 20, 20);
+    rect(pos.x, pos.y, 10, 100);
   }  
 }
