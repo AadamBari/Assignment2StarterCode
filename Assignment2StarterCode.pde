@@ -77,7 +77,7 @@ void setUpPlayerControllers()
             , color(255)//(random(0, 255), random(0, 255), random(0, 255))
             , playerXML1);
 
-    p1.pos.x = 20;
+    p1.pos.x = p1.paddleW;
     p1.pos.y = width / 2;
    players.add(p1);         
   
@@ -88,7 +88,7 @@ void setUpPlayerControllers()
             , color(255)//(random(0, 255), random(0, 255), random(0, 255))
             , playerXML2);
 
-    p2.pos.x = width - 40;
+    p2.pos.x = width - (2 * p2.paddleW);
     p2.pos.y = width / 2;
    players.add(p2); 
   

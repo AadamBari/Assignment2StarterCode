@@ -10,10 +10,14 @@ class Player
   char button2;
   int index;
   color colour;
-    
+  int paddleH;
+  int paddleW;
+ 
   Player()
   {
     pos = new PVector(width / 2, height / 2);
+    paddleH = height/5;
+    paddleW = width/50; 
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
@@ -46,11 +50,11 @@ class Player
   
   void update()
   {
-    if (checkKey(up))
+    if (checkKey(up) && pos.y > 0)
     {
       pos.y -= 5;
     }
-    if (checkKey(down))
+    if (checkKey(down) && pos.y < height - paddleH)
     {
       pos.y += 5;
     }
@@ -81,7 +85,8 @@ class Player
   void display()
   {    
     stroke(colour);
-    fill(colour);    
-    rect(pos.x, pos.y, 10, 100);
+    fill(colour); 
+      
+    rect(pos.x, pos.y, paddleW, paddleH);
   }  
 }
