@@ -8,11 +8,26 @@
 
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
+boolean devMode = false;
+boolean sketchFullScreen() {
+  return ! devMode;
+}
+
+Ball theBall;
+
 
 void setup()
 {
-  size(1000, 750);
-  
+    if (devMode)
+  {
+    size(800, 600);
+  }
+  else
+  {
+    size(displayWidth, displayHeight);
+  }
+  //Sets up class
+  theBall = new Ball();
   setUpPlayerControllers();
 }
 
@@ -24,6 +39,7 @@ void draw()
     player.update();
     player.display();
   }
+  theBall.display();
 }
 
 void keyPressed()
@@ -78,7 +94,7 @@ void setUpPlayerControllers()
             , playerXML1);
 
     p1.pos.x = p1.paddleW;
-    p1.pos.y = width / 2;
+    p1.pos.y = (height / 2);
    players.add(p1);         
   
    
@@ -89,7 +105,7 @@ void setUpPlayerControllers()
             , playerXML2);
 
     p2.pos.x = width - (2 * p2.paddleW);
-    p2.pos.y = width / 2;
+    p2.pos.y = (height / 2);
    players.add(p2); 
   
 }
