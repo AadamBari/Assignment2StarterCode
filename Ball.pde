@@ -29,10 +29,13 @@ class Ball extends Player
     pos.x += speedX;
     pos.y += speedY;
     
+    //right paddle hit detection
     if (pos.x >= p2.pos.x - (ballSize/2) &&  (pos.y + ballSize/2) >= p2.pos.y  && + pos.y <= (p2.pos.y + p2.paddleH)   )
     {
-      speedX *= -1;
+      speedX *= -1;//reverse dirction of ball
     }
+    
+    
     
    /* if (pos.x >= p2.pos.x - (ballSize/2) || pos.x <= (p1.pos.x + p1.paddleW) + (ballSize/2))
     {
