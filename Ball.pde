@@ -30,29 +30,30 @@ class Ball extends Player
     pos.y += speedY;
     
     //right paddle hit detection
-    if (pos.x >= p2.pos.x - (ballSize/2) &&  (pos.y + ballSize/2) >= p2.pos.y  && + pos.y <= (p2.pos.y + p2.paddleH)   )
+    if (pos.x + (ballSize/2) >= p2.pos.x &&  (pos.y + ballSize/2) >= p2.pos.y  && + pos.y <= (p2.pos.y + p2.paddleH)   )
     {
-      speedX *= -1;//reverse dirction of ball
+      speedX *= -1;//reverse dirction of ball when it hits paddle
+      //angle the ball depending on loction it hits on paddle
+      float hit = pos.y - (p2.pos.y + paddleH/2);
+      speedY += (hit / (paddleH/2)) * 3;
+      
     }
     
-    
-    
-   /* if (pos.x >= p2.pos.x - (ballSize/2) || pos.x <= (p1.pos.x + p1.paddleW) + (ballSize/2))
+    //left paddle hit detection
+    if (pos.x  - (ballSize/2) <= (p1.pos.x + p1.paddleW) &&  (pos.y + ballSize/2) >= p1.pos.y  && + pos.y <= (p1.pos.y + p1.paddleH)   )
     {
-      speedX *= -1;
+      speedX *= -1;//reverse dirction of ball when it hits paddle
+      //angle the ball depending on loction it hits on paddle
+      float hit = pos.y - (p1.pos.y + paddleH/2);
+      speedY += (hit / (paddleH/2)) * 3;
     }
     
+    //constrain ball to screen 
     if (pos.y >= height - (ballSize/2) || pos.y <= 0 + (ballSize/2))
     {
       speedY *= -1;
     }
     
-    //if (pos.y >= height - (ballSize/2) || pos.y <
-    /*
-    if (pos.x >= width - (ballSize/2) || pos.x <= 0)
-    {
-      speedX *= -1;
-    }*/
     
   }
 }//end Ball

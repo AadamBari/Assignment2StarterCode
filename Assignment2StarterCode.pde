@@ -40,17 +40,12 @@ void draw()
   {
     player.update();
     player.display();
-    hitDet();
   }
   theBall.display();
   theBall.update();
 }
 
-void hitDet()
-{
-  println(p1.pos.y);
-  
-}
+
 
 void keyPressed()
 {
@@ -104,7 +99,7 @@ void setUpPlayerControllers()
             , playerXML1);
 
     p1.pos.x = p1.paddleW;
-    p1.pos.y = (height / 2);
+    p1.pos.y = (height / 2) - (p1.paddleH / 2);
    players.add(p1);         
   
    
@@ -115,7 +110,7 @@ void setUpPlayerControllers()
             , playerXML2);
 
     p2.pos.x = width - (2 * p2.paddleW);
-    p2.pos.y = (height / 2);
+    p2.pos.y = (height / 2) - (p2.paddleH / 2);
    players.add(p2); 
   
 }

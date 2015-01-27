@@ -19,7 +19,7 @@ class Player
     pos = new PVector(width / 2, height / 2);
     paddleH = height/5;
     paddleW = width/50; 
-    speed = 5;
+    speed = 10;
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
