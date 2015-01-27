@@ -13,6 +13,7 @@ class Player
   int paddleH;
   int paddleW;
   float speed;
+  int lives;
  
   public Player()
   {
@@ -86,9 +87,17 @@ class Player
   
   void display()
   {    
+    noSmooth();
     stroke(colour);
-    fill(colour); 
-      
+    fill(colour);  
     rect(pos.x, pos.y, paddleW, paddleH);
+    
+       
+    //game statistics
+    textFont(gamefont, width/10);
+    textAlign(LEFT, TOP);
+    text(p1.lives , width/7, height/7);
+    textAlign(RIGHT, TOP);
+    text(p2.lives , (width - width/7), height/7);
   }  
 }

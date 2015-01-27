@@ -31,6 +31,7 @@ void setup()
   //Sets up class
   theBall = new Ball();
   setUpPlayerControllers();
+  loading();
 }
 
 void draw()
@@ -95,22 +96,24 @@ void setUpPlayerControllers()
     XML playerXML1 = children[0];
     p1 = new Player(
             1
-            , color(255)//(random(0, 255), random(0, 255), random(0, 255))
+            , color(255)
             , playerXML1);
 
     p1.pos.x = p1.paddleW;
     p1.pos.y = (height / 2) - (p1.paddleH / 2);
+    p1.lives = 3;
    players.add(p1);         
   
    
   XML playerXML2 = children[1]; 
   p2 = new Player(
             2
-            , color(255)//(random(0, 255), random(0, 255), random(0, 255))
+            , color(255)
             , playerXML2);
 
     p2.pos.x = width - (2 * p2.paddleW);
     p2.pos.y = (height / 2) - (p2.paddleH / 2);
+    p2.lives = 3;
    players.add(p2); 
   
-}
+}//end setUpPlayerCotrollers()
