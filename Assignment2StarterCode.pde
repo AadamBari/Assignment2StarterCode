@@ -14,6 +14,8 @@ boolean sketchFullScreen() {
 }
 
 Ball theBall;
+Player p1;
+Player p2;
 
 
 void setup()
@@ -38,8 +40,16 @@ void draw()
   {
     player.update();
     player.display();
+    hitDet();
   }
   theBall.display();
+  theBall.update();
+}
+
+void hitDet()
+{
+  println(p1.pos.y);
+  
 }
 
 void keyPressed()
@@ -88,7 +98,7 @@ void setUpPlayerControllers()
   
   
     XML playerXML1 = children[0];
-    Player p1 = new Player(
+    p1 = new Player(
             1
             , color(255)//(random(0, 255), random(0, 255), random(0, 255))
             , playerXML1);
@@ -99,7 +109,7 @@ void setUpPlayerControllers()
   
    
   XML playerXML2 = children[1]; 
-  Player p2 = new Player(
+  p2 = new Player(
             2
             , color(255)//(random(0, 255), random(0, 255), random(0, 255))
             , playerXML2);

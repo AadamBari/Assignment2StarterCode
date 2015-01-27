@@ -12,12 +12,14 @@ class Player
   color colour;
   int paddleH;
   int paddleW;
+  float speed;
  
-  Player()
+  public Player()
   {
     pos = new PVector(width / 2, height / 2);
     paddleH = height/5;
     paddleW = width/50; 
+    speed = 5;
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
@@ -52,11 +54,11 @@ class Player
   {
     if (checkKey(up) && pos.y > 0)
     {
-      pos.y -= 5;
+      pos.y -= speed;
     }
     if (checkKey(down) && pos.y < height - paddleH)
     {
-      pos.y += 5;
+      pos.y += speed;
     }
     /*
     if (checkKey(left))
