@@ -13,6 +13,10 @@ void initialise()//reinitialise after life lost
   p2.pos.x = width - (2 * p2.paddleW);
   p2.pos.y = (height / 2) - (p2.paddleH / 2);
   
+  //sound effect for new round after life is lost
+  roundSound.play();
+  roundSound.rewind();
+  
 }//end initialise()
 
 boolean gamestart;//toggle for spalsh screen
@@ -75,8 +79,25 @@ void gameover()
     text("PLAYER 1 WINS!" , width/2, height/5);
   }
   
-  textFont(gamefont, width/30);
-  text("press any key to play again" , width/2, (height - height/5));
+  //textFont(gamefont, width/30);
+  //text("press any key to play again" , width/2, (height - height/5));
+  
+  //flash effect text for game over screen
+   String flashtext = "press any key to play again";
+   int s = second();
+   if (s % 2 == 0)
+   {
+     fill(255);
+     textFont(gamefont, width/30);
+     text(flashtext, width/2, (height - height/5) );
+   }
+   else
+   {
+     fill(0);
+     textFont(gamefont, width/30);
+     text(flashtext, width/2, (height - height/5) );
+   }
+  
     
   if (keyPressed)//reset lives and reinitialise
   {
