@@ -31,11 +31,12 @@ void setup()
   //Sets up class
   theBall = new Ball();
   setUpPlayerControllers();
-  loading();
+  loading();//Loads required fonts/sounds(See GameMethods tab)
 }
 
 void draw()
 { 
+  
   background(0);
   for(Player player:players)
   {

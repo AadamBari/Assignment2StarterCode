@@ -58,18 +58,12 @@ class Ball extends Player
     if (pos.x >= width)
     {
       p2.lives--;
-      pos.x = width/2;
-      pos.y = height/2;
-      speedX = 15;
-      speedY = 0;
+      initialise(); //(See GameMethods tab)
     }
     if (pos.x < 0)
     {
       p1.lives--;
-      pos.x = width/2;
-      pos.y = height/2;
-      speedX = 15;
-      speedY = 0;
+      initialise(); //(See GameMethods tab)
     }
     
     

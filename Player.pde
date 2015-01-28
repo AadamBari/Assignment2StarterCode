@@ -18,8 +18,8 @@ class Player
   public Player()
   {
     pos = new PVector(width / 2, height / 2);
-    paddleH = height/5;
-    paddleW = width/50; 
+    paddleH = height/6;
+    paddleW = width/100; 
     speed = 10;
   }
   
@@ -87,13 +87,19 @@ class Player
   
   void display()
   {    
-    noSmooth();
-    stroke(colour);
+    
+    //draw paddles
+    smooth();
     fill(colour);  
     rect(pos.x, pos.y, paddleW, paddleH);
     
+    //draw background details
+    stroke(colour);
+    line(width/2, 0, width/2, height);
+    noFill();
+    ellipse(width/2, height/2, width/4, height/3);
        
-    //game statistics
+    //draw game statistics
     textFont(gamefont, width/10);
     textAlign(LEFT, TOP);
     text(p1.lives , width/7, height/7);
