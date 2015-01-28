@@ -1,11 +1,17 @@
 
 void initialise()//reinitialise after life lost
 {
+  //producing random number of either 1 or -1
+  int r = int(random(-1, 1));
+  while (r == 0)
+  {
+    r = int(random(-1, 1));
+  }
   //reset the ball position and speed
   theBall.pos.x = width/2;
   theBall.pos.y = height/2;
-  theBall.speedX = 15;
   theBall.speedY = 0;
+  theBall.speedX = 15 * r;//random left and right direction
   
   //reset player positions (The position of the paddles)
   p1.pos.x = p1.paddleW;

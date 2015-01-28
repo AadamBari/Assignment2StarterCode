@@ -10,10 +10,16 @@ class Ball extends Player
   {
     pos = new PVector(width/2, height/2);
     ballSize = width/60;
-    speedX = 15;
-    speedY = 0;
-    
-  }
+    //producing random number of either 1 or -1
+    int r = int(random(-1, 1));
+    while (r == 0)
+    {
+      r = int(random(-1, 1));
+    }
+      speedX = 15 * r;//send either left or right randomnly
+      speedY = 0;
+      
+    }//end Ball()
   
   void display()
   {
@@ -48,7 +54,7 @@ class Ball extends Player
     {
       speedX *= -1;//reverse dirction of ball when it hits paddle
       //angle the ball depending on loction it hits on paddle
-      float hit = pos.y - (p1.pos.y + paddleH/2);
+      float hit = pos.y - (p1.pos.y + paddleH/2);//subtract centre of paddle position away from ball position
       speedY += (hit / (paddleH/2)) * 3;
       
       //play sound effect
