@@ -71,9 +71,12 @@ class Player
       pos.x += 1;
     }
     */
-    if (checkKey(start))
+    if (checkKey(start))//start resets game
     {
       println("Player " + index + " start");
+      p1.lives = 3;
+      p2.lives = 3;
+      initialise();//see GameMethods tab
     }
     if (checkKey(button1))
     {

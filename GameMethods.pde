@@ -89,7 +89,7 @@ void gameover()
   //text("press any key to play again" , width/2, (height - height/5));
   
   //flash effect text for game over screen
-   String flashtext = "press any key to play again";
+   String flashtext = "press START to play again";
    int s = second();
    if (s % 2 == 0)
    {
@@ -104,12 +104,12 @@ void gameover()
      text(flashtext, width/2, (height - height/5) );
    }
   
+  //allows for start button to be accessed | See Player tab
+  for(Player player:players)
+    {
+      player.update();
+    }
     
-  if (keyPressed)//reset lives and reinitialise
-  {
-    p1.lives = 3;
-    p2.lives = 3;
-    initialise();
-  }
+ 
   
 }//end gameover()
