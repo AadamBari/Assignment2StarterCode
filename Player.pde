@@ -97,6 +97,7 @@ class Player
     stroke(colour);
     line(width/2, 0, width/2, height);
     noFill();
+    rect(1, 1, width-2, height-2);
     ellipse(width/2, height/2, width/4, height/3);
        
     //draw game statistics

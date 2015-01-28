@@ -36,7 +36,7 @@ void setup()
   theBall = new Ball();
   setUpPlayerControllers();
   
-  //Loads required fonts/sounds(See GameMethods tab)
+  //Loads required fonts/sounds(See InputOutput tab)
   loading();
 }
 

@@ -1,11 +1,3 @@
-PFont gamefont;//font for game statistics (lives etc)
-boolean gamestart;//toggle for spalsh screen
-
-void loading()//load files
-{
-  gamefont = loadFont("Unibody8-40.vlw");
-  
-}//end loading()
 
 void initialise()//reinitialise after life lost
 {
@@ -23,6 +15,8 @@ void initialise()//reinitialise after life lost
   
 }//end initialise()
 
+boolean gamestart;//toggle for spalsh screen
+
 void splashscreen()
 {
   //game title
@@ -34,7 +28,7 @@ void splashscreen()
    String instructions1 = "INSTRUCTIONS:\n Don't allow the ball to pass behind your paddle!";
    String instructions2 = "\n Use keys to move your paddle and deflect the ball!";
    String instructions3 = "\n It's pong not rocket science.";
-   textFont(gamefont, width/50);
+   textFont(gamefont2, width/50);
    text(instructions1+instructions2+instructions3, width/2, height/2);
    
    //flash effect text
@@ -72,23 +66,23 @@ void gameover()
   
   if(p1.lives <= 0)//if player 1 loses
   {
-    textFont(gamefont, width/25);
-    text("Player 2 WINS!" , width/2, height/5);
+    textFont(gamefont2, width/25);
+    text("PLAYER 2 WINS!" , width/2, height/5);
   }
   else if(p2.lives <= 0)//if player 2 loses
   {
-    textFont(gamefont, width/25);
-    text("Player 1 WINS!" , width/2, height/5);
+    textFont(gamefont2, width/25);
+    text("PLAYER 1 WINS!" , width/2, height/5);
   }
   
-  textFont(gamefont, width/25);
+  textFont(gamefont, width/30);
   text("press any key to play again" , width/2, (height - height/5));
     
-    if (keyPressed)
+  if (keyPressed)//reset lives and reinitialise
   {
     p1.lives = 3;
     p2.lives = 3;
     initialise();
   }
   
-}
+}//end gameover()

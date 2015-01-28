@@ -38,6 +38,9 @@ class Ball extends Player
       float hit = pos.y - (p2.pos.y + paddleH/2); 
       speedY += (hit / (paddleH/2)) * 3;
       
+      //play sound effect
+      p2Sound.play();
+      p2Sound.rewind();
     }
     
     //left paddle hit detection
@@ -47,12 +50,19 @@ class Ball extends Player
       //angle the ball depending on loction it hits on paddle
       float hit = pos.y - (p1.pos.y + paddleH/2);
       speedY += (hit / (paddleH/2)) * 3;
+      
+      //play sound effect
+      p1Sound.play();
+      p1Sound.rewind();
     }
     
     //constrain ball to screen 
     if (pos.y >= height - (ballSize/2) || pos.y <= 0 + (ballSize/2))
     {
       speedY *= -1;
+      //play sound effect
+      wallHit.play();
+      wallHit.rewind();
     }
     
     //lives counter and reinitialise
