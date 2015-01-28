@@ -9,7 +9,7 @@ class Ball extends Player
   Ball()
   {
     pos = new PVector(width/2, height/2);
-    ballSize = width/50;
+    ballSize = width/60;
     speedX = 15;
     speedY = 0;
     
@@ -17,6 +17,7 @@ class Ball extends Player
   
   void display()
   {
+    //draw ball
     stroke(255);
     fill(255); 
     ellipse(pos.x, pos.y, ballSize, ballSize);
@@ -34,7 +35,7 @@ class Ball extends Player
     {
       speedX *= -1;//reverse dirction of ball when it hits paddle
       //angle the ball depending on loction it hits on paddle
-      float hit = pos.y - (p2.pos.y + paddleH/2);
+      float hit = pos.y - (p2.pos.y + paddleH/2); 
       speedY += (hit / (paddleH/2)) * 3;
       
     }
@@ -65,7 +66,6 @@ class Ball extends Player
       p1.lives--;
       initialise(); //(See GameMethods tab)
     }
-    
     
     
   }

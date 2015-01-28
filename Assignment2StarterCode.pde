@@ -20,6 +20,7 @@ Player p2;
 
 void setup()
 {
+  //set screen size
     if (devMode)
   {
     size(800, 600);
@@ -28,24 +29,37 @@ void setup()
   {
     size(displayWidth, displayHeight);
   }
+  //false therefore splashscreen appears
+  gamestart = false; 
+  
   //Sets up class
   theBall = new Ball();
   setUpPlayerControllers();
-  loading();//Loads required fonts/sounds(See GameMethods tab)
+  
+  //Loads required fonts/sounds(See GameMethods tab)
+  loading();
 }
 
 void draw()
 { 
-  
   background(0);
-  for(Player player:players)
+  
+  if(gamestart)
   {
-    player.update();
-    player.display();
+    for(Player player:players)
+    {
+      player.update();
+      player.display();
+    }
+    theBall.display();
+    theBall.update();
   }
-  theBall.display();
-  theBall.update();
-}
+  else
+  {
+    splashscreen();
+  }
+  
+}//end draw()
 
 
 

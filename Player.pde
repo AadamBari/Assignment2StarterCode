@@ -53,11 +53,11 @@ class Player
   
   void update()
   {
-    if (checkKey(up) && pos.y > 0)
+    if (checkKey(up) && pos.y > 0)//constrain paddle to screen
     {
       pos.y -= speed;
     }
-    if (checkKey(down) && pos.y < height - paddleH)
+    if (checkKey(down) && pos.y < height - paddleH)//constrain paddle to screen
     {
       pos.y += speed;
     }
