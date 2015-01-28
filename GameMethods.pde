@@ -3,10 +3,9 @@ boolean gamestart;//toggle for spalsh screen
 
 void loading()//load files
 {
-  
   gamefont = loadFont("Unibody8-40.vlw");
   
-}
+}//end loading()
 
 void initialise()//reinitialise after life lost
 {
@@ -22,7 +21,7 @@ void initialise()//reinitialise after life lost
   p2.pos.x = width - (2 * p2.paddleW);
   p2.pos.y = (height / 2) - (p2.paddleH / 2);
   
-}
+}//end initialise()
 
 void splashscreen()
 {
@@ -31,6 +30,12 @@ void splashscreen()
    textFont(gamefont, width/10);
    textAlign(CENTER, CENTER);
    text("|  PONG  |" , width/2, height/5);
+   
+   String instructions1 = "INSTRUCTIONS:\n Don't allow the ball to pass behind your paddle!";
+   String instructions2 = "\n Use keys to move your paddle and deflect the ball!";
+   String instructions3 = "\n It's pong not rocket science.";
+   textFont(gamefont, width/50);
+   text(instructions1+instructions2+instructions3, width/2, height/2);
    
    //flash effect text
    String flashtext = "PRESS ANY KEY TO START";
@@ -52,6 +57,38 @@ void splashscreen()
   if (keyPressed)
   {
     gamestart = true;
+  }
+  
+}//end splashscreen()
+
+void gameover()
+{
+  fill(255);
+  textAlign(CENTER, CENTER);
+  
+  //Game over text
+  textFont(gamefont, width/10);
+  text("GAME OVER" , width/2, height/2);
+  
+  if(p1.lives <= 0)//if player 1 loses
+  {
+    textFont(gamefont, width/25);
+    text("Player 2 WINS!" , width/2, height/5);
+  }
+  else if(p2.lives <= 0)//if player 2 loses
+  {
+    textFont(gamefont, width/25);
+    text("Player 1 WINS!" , width/2, height/5);
+  }
+  
+  textFont(gamefont, width/25);
+  text("press any key to play again" , width/2, (height - height/5));
+    
+    if (keyPressed)
+  {
+    p1.lives = 3;
+    p2.lives = 3;
+    initialise();
   }
   
 }

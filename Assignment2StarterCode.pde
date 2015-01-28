@@ -44,7 +44,11 @@ void draw()
 { 
   background(0);
   
-  if(gamestart)
+  if(p1.lives <= 0 || p2.lives <= 0)
+  {
+    gameover(); //see GameMethods tab
+  }
+  else if(gamestart)
   {
     for(Player player:players)
     {
